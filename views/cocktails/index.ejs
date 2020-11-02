@@ -1,0 +1,14 @@
+<h1>All Cocktails</h1>
+  <ul>
+    <table>
+      <% for (let i = 0; i < cocktails.length; i++) { %>
+        <tr>
+          <td id="column-name">
+            <li>
+              <a href="/cocktails/<%=cocktails[i]._id%>"> <%= cocktails[i].name %> </a>
+           </li>
+          </td>
+        </tr>
+      <% } %>
+    </table>
+  </ul> 

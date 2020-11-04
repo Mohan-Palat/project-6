@@ -1,43 +1,41 @@
-  <div class="wrapper">
-   <div class="cocktail">
-     <div class="liquid"></div>
-     <div class="ice-cubes">
-       <div class="ice-cube ice-cube-1"></div>
-       <div class="ice-cube ice-cube-2"></div>
-       <div class="ice-cube ice-cube-3"></div>
-     </div>
-     <div class="lemon-slice"></div>
-     <div class="leaves">
-       <div class="leave leave-1"></div>
-       <div class="leave leave-2"></div>
-       <div class="leave leave-3"></div>
-     </div>
-     <div class="straw"></div>
-     <div class="straw-surface"></div>
-     <div class="shadow"></div>
-    </div> 
-  </div>
-  <script>
-    let links = [{label: 'Cocktails', bg: '#c0392b'}, 
-             {label: 'Create a Cocktail', bg: '#2980b9'}, 
-             {label: 'Ingredients', bg: '#8e44ad'}, 
-             {label: 'Add Ingredients', bg: '#27ae60'}, 
-            {label: 'Suggestions', bg: '#f39c12'},]; 
-    let windowHeight = window.innerHeight;
-    let radius = windowHeight*0.6,
-    
+var links = [{label: 'link1', bg: '#c0392b'}, 
+             {label: 'link2', bg: '#16a085'}, 
+             {label: 'link3', bg: '#8e44ad'}, 
+             {label: 'link4', bg: '#27ae60'}, 
+             {label: 'link5', bg: '#f39c12'}, 
+             {label: 'link6', bg: '#2980b9'}];
+var windowHeight = window.innerHeight;
+if(windowHeight === 0) windowHeight = 238;
+var radius = windowHeight*0.6,
+    circle = document.createElement('div'),
     borderSize = radius*0.021;
-    totalArea = 35, 
+    totalArea = 48, 
     increment = totalArea/(links.length-1),
-    startPoint = 0-(totalArea/3),
+    startPoint = 0-(totalArea/2),
     fontSize = radius*0.12,
     linkSize = radius*0.25;
 
-    addLinks();
-    styleLinks();
+styleCircle();
+addCircle();
+addLinks();
+styleLinks();
+
+function styleCircle() {
+  circle.style.border= borderSize+'px solid #fff';
+  circle.style.width = radius*2+'px';
+  circle.style.height = radius*2+'px';
+  circle.style.borderRadius = radius+'px';
+  circle.style.position = 'absolute';
+  circle.style.top = '-'+radius*0.2+'px';
+  circle.style.left = radius*-1+'px';
+}
+
+function addCircle() {
+  document.body.appendChild(circle);
+}
 
 function addLinks() {
-  for (let i=0, l=links.length; i<l; i++) {
+  for (var i=0, l=links.length; i<l; i++) {
     link = document.createElement('a'),
     hover = document.createElement('span');
     link.href = "#";
@@ -46,9 +44,11 @@ function addLinks() {
     link.style.textDecoration = 'none';
     link.style.color = '#fff';
     link.style.position = 'absolute';
+    link.style.zIndex = 100;
     link.innerHTML = links[i].label;
     hover.style.position = 'absolute';
     hover.style.display = 'inline-block';
+    hover.style.zIndex = 50;
     hover.style.opacity = 0;
     document.body.appendChild(link);
     document.body.appendChild(hover);
@@ -60,24 +60,27 @@ function addLinks() {
 }
 
 function styleLinks() {
-  for (let i=0, l=links.length; i<l; i++) 
-  {
-    let link = links[i].elem;
-    hover = links[i].hover;
-    deg = startPoint+(i*increment);  
-    
+  for (var i=0, l=links.length; i<l; i++) {
+    var link = links[i].elem, hover = links[i].hover, deg = startPoint+(i*increment);  
     link.style.paddingLeft = radius*1.2+'px';
     link.style.fontSize = fontSize+'px';
     link.style.height = linkSize+'px';
     link.style.lineHeight = linkSize+'px';
-    link.style.left = (borderSize+400)+'px';
-    link.style.top = (windowHeight/2) - (windowHeight*0.1)+borderSize+'px';
-    
-    setTransformOrigin(link, '0px '+(linkSize*0.8)+'px');
+    setTransformOrigin(link, '0px '+linkSize*0.5+'px');
     setTransition(link, 'all 0.2s ease-out');
-    setTransform(link, 'rotate('+(deg + 1)+'deg)');
-    console.log(link);
-   
+    setTransform(link, 'rotate('+deg+'deg)');
+    link.style.left = borderSize+'px';
+    link.style.top = (windowHeight/2) - (windowHeight*0.1)+borderSize+'px';
+
+    hover.style.left = borderSize+'px';
+    setTransformOrigin(hover, '0px '+linkSize*0.5+'px');
+    setTransition(hover, 'all 0.2s ease-out');
+    setTransform(hover, 'rotate('+deg+'deg)');
+    hover.style.top = (windowHeight*0.4)+borderSize +'px';
+    hover.style.width = radius+(borderSize/2)+'px';
+    hover.style.height = linkSize+'px';
+    hover.style.borderRight = borderSize*2+'px solid #fff';
+  
   }
 }
 
@@ -87,18 +90,19 @@ window.onresize = function() {
   borderSize = radius*0.021;  
   fontSize = radius*0.12,
   linkSize = radius*0.25;
+  styleCircle();
   styleLinks();
 }
 
 function linkOver(e) {
-  let thisLink = e.target, thisHover = thisLink.nextSibling;
+  var thisLink = e.target, thisHover = thisLink.nextSibling;
   thisLink.style.paddingLeft = radius*1.25+'px';
   thisHover.style.opacity = 1;
   document.body.style.backgroundColor = thisLink.dataset.color;
 }
 
 function linkOut(e) {
-  let thisLink = e.target, thisHover = thisLink.nextSibling;
+  var thisLink = e.target, thisHover = thisLink.nextSibling;
   thisLink.style.paddingLeft = radius*1.2+'px';
   thisHover.style.opacity = 0;
 }
@@ -127,6 +131,3 @@ function setTransition(element, string) {
   element.style.transition = string;
 }
 
-
-  </script>
-  

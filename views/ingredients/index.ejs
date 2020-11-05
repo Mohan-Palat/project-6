@@ -1,0 +1,16 @@
+<div id="main-content">
+    <h2>Ingredients</h2>
+    <ul>
+      <table>
+        <% for (let i = 0; i < ingredients.length; i++) { %>
+          <tr>
+            <td id="column-name">
+              <li>
+                <a href="/ingredients/<%=ingredients[i]._id%>"> <%= ingredients[i].name %> </a>
+             </li>
+            </td>
+          </tr>
+        <% } %>
+      </table>
+    </ul> 
+  </div>

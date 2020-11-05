@@ -7,10 +7,10 @@ body,
 }
 
 body {
-	overflow: hidden;
 	background: #16a085;
 	font-family: 'Economica', sans-serif;
-    letter-spacing: 0.1em;
+	letter-spacing: 0.1em;
+	border: 1px solid transparent;
 }
 
 .wrapper {
@@ -269,7 +269,12 @@ body {
 ul {
 	margin: 0;
 	padding: 0;
-    list-style: none;
+	list-style: none;
+	font-size: 28px;
+}
+
+ul a {
+	color: whitesmoke;
 }
 
 a {
@@ -277,11 +282,13 @@ a {
 }
 
 .logo {
-	padding-left: 18px;
+	
     font-size: 40pt;
     padding-top: 12px;
     padding-bottom: 20px;
-    color: #fcedd8;
+    margin-left: 15px;
+    margin-right: 15px;
+    color: #f8f4ed;
     font-family: 'Dancing Script', cursive;
     text-shadow:  0.5px 0.5px 1px black, 
                   1px 1px 1px #eb452b, 
@@ -289,6 +296,11 @@ a {
                   3px 3px 1px #46b59b, 
                   4px 4px 1px #017e7f, 
                   5px 5px 1px #052939;
+    border: 3px dashed #fcedd8;
+    box-shadow: 0 0 3px white;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 25% 80%;
+    text-align: center;
 
 }
 
@@ -304,7 +316,7 @@ a {
     color: #fcedd8;
     text-shadow: 1.5px 1.5px 1.5px rgb(0, 0, 0);
     font-size: 20pt;
-    padding: 30px 30px 10px 28px;
+    padding: 30px 30px 9px 28px;
 }
 
 .main-nav a:hover {
@@ -318,7 +330,7 @@ a {
     background-color: rgba(255,255,255,0.4);
     z-index: 1;
     height:100%;
-    width: 250px;
+    width: 275px;
     position: fixed;
 	-webkit-box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
 	-moz-box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
@@ -328,10 +340,12 @@ a {
 	border-radius: 5px;
 }
 
-
-/* ================================= 
-  Media Queries
-==================================== */
+#main-content{
+    padding-left: 300px;
+	z-index: 0;
+	color: #fcf4eb;
+	text-shadow: 1.5px 1.5px 1.5px rgb(0, 0, 0);
+}
 
 @media (min-width: 769px) {
 	.header,

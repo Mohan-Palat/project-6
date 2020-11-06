@@ -10,5 +10,9 @@ const cocktailSchema = new mongoose.Schema({
       ref: 'Ingredient',
     },
   ],
+  instructions: {
+    type: String,
+    default: '',
+  },
 });
 module.exports = mongoose.model('Cocktail', cocktailSchema);

@@ -8,9 +8,11 @@
   <% })%>
   <input type="submit" value="Add Ingredients" />
 </form>
-<h4>Ingredients</h4>
+<h3>Ingredients</h3>
 <ul>
   <% cocktail.ingredients.forEach(ing => { %>
   <li><%= ing.name %> <% }) %></li>
 </ul>
+<h3>Instructions</h3>
+<h4><%= cocktail.instructions %></h4>
 </div>

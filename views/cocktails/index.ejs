@@ -1,13 +1,43 @@
 <div id="main-content">
-  <h1>Cocktails</h1>
-  
-    <table>
+  <div class="page-title">Cocktails List</div>
+  <input type="text" id="myInput" onkeyup="searchForCocktail()" placeholder="Search for cocktails..">
+    <table id="myTable">
       <% for (let i = 0; i < cocktails.length; i++) { %>
         <tr>
-          <td id="column-name">           
+          <td id="cocktail-name">           
               <a href="/cocktails/<%=cocktails[i]._id%>"> <%= cocktails[i].name %> </a>         
+          </td>
+          <td id="edit" style="text-align:right;"><button><a href="/cocktails/<%=cocktails[i]._id%>/edit" id="edit-link">EDIT</a></button></td>
+          <td id="delete">
+              <form action="/cocktails/<%=cocktails[i]._id; %>?_method=DELETE" method="POST">
+                <input type="submit" value="DELETE"/>
+              </form>
           </td>
         </tr>
       <% } %>
     </table>
 </div>
+
+<script>
+  function searchForCocktail() {
+    // Declare variables
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+  
+    // Loop through all table rows, and hide those who don't match the search query
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[0];
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  }
+  </script>

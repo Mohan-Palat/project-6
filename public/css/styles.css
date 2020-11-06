@@ -341,7 +341,7 @@ a {
 }
 
 #main-content{
-    padding-left: 300px;
+    padding-left: 320px;
 	z-index: 0;
 	color: #fcf4eb;
 	text-shadow: 1.5px 1.5px 1.5px rgb(0, 0, 0);
@@ -366,4 +366,73 @@ a {
 		flex-direction: column;
 		
 	}
+}
+
+#cocktail-name a{
+	color: whitesmoke;
+	font-size:25pt;
+}
+
+#myInput {
+  background-image: url('/css/searchicon.png'); /* Add a search icon to input */
+  background-position: 10px 12px; /* Position the search icon */
+  background-repeat: no-repeat; /* Do not repeat the icon image */
+  width: 70%; /* Full-width */
+  font-size: 18pt; /* Increase font-size */
+  padding: 12px 0px 12px 40px; /* Add some padding */
+  margin-bottom: 12px; /* Add some space below the input */
+  border-radius: 20px;
+}
+
+#myTable {
+  border-collapse: collapse; /* Collapse borders */
+  width: 86%; /* Full-width */
+  font-size: 20pt; /* Increase font-size */
+}
+
+#myTable th, #myTable td {
+  text-align: left; /* Left-align text */
+  padding: 12px; /* Add padding */
+}
+
+
+#myTable tr.header, #myTable tr:hover {
+  /* Add a grey background color to the table header and on hover */
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.page-title {
+	font-family: 'Dancing Script', cursive;
+	font-size: 45pt;
+	padding: 25px 5px;
+}
+
+#delete input[type="submit"] {
+	color: whitesmoke;
+	background-color: rgba(160, 0, 0, 0.8);
+	opacity: 0.9;
+	border: 2px inset white;
+	border-radius: 5px;
+	padding: 5px;
+	width: 125px;
+}
+
+#edit button {
+	color: whitesmoke;
+	background-color: rgba(0, 64, 160, 0.8);
+	opacity: 0.9;
+	border: 2px inset white;
+	border-radius: 5px;
+	padding: 5px;
+	width: 125px;
+}
+
+#edit button a {
+	color: white;
+}
+
+input[type="submit"]:hover, button:hover{
+  color: slategray;
+  background-color: whitesmoke;
+  opacity: 0.9;
 }

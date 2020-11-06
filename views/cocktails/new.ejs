@@ -1,9 +1,13 @@
 <div id="main-content">
-<h1>Create a New Cocktail</h1>
+  <div class="page-title">New Cocktail</div>
 <form action="/cocktails" method="POST">
   <div class="form-group">
     <label for="name">Name</label>
     <input type="text" class="form-control" id="name" name="name" />
+  </div>
+  <div class="form-group">
+    <label for="instructions">Instructions</label>
+    <input type="text" class="form-control" id="instructions" name="instructions" />
   </div>
   <% ingredients.forEach(ingredient => { %>
   <input

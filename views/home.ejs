@@ -18,11 +18,11 @@
     </div> 
   </div>
   <script>
-    let links = [{label: 'Cocktails', bg: '#c0392b'}, 
-             {label: 'Create a Cocktail', bg: '#2980b9'}, 
-             {label: 'Ingredients', bg: '#8e44ad'}, 
-             {label: 'Add Ingredients', bg: '#27ae60'}, 
-            {label: 'Suggestions', bg: '#f39c12'},]; 
+    let links = [{label: 'Cocktails', bg: '#c0392b', urlLink: 'cocktails'}, 
+             {label: 'Create a Cocktail', bg: '#2980b9', urlLink: 'cocktails/new'}, 
+             {label: 'Ingredients', bg: '#8e44ad', urlLink: 'ingredients'}, 
+             {label: 'Add Ingredients', bg: '#27ae60', urlLink: 'ingredients/new'}, 
+            {label: 'Suggestions', bg: '#f39c12', urlLink: 'cocktails'}]; 
     let windowHeight = window.innerHeight;
     let radius = windowHeight*0.6,
     
@@ -40,7 +40,7 @@ function addLinks() {
   for (let i=0, l=links.length; i<l; i++) {
     link = document.createElement('a'),
     hover = document.createElement('span');
-    link.href = "#";
+    link.href = links[i].urlLink;
     link.dataset.color = links[i].bg;
     link.style.display = 'inline-block';
     link.style.textDecoration = 'none';
@@ -126,7 +126,5 @@ function setTransition(element, string) {
   element.style.OTransition = string;
   element.style.transition = string;
 }
-
-
-  </script>
+</script>
   

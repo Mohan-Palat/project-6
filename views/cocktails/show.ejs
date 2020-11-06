@@ -1,18 +1,25 @@
 <div id="main-content">
-<div class="page-title"><%= cocktail.name %></div>
+<div class="page-title"><%= cocktail.name %> <img id="drink-img" width="300" height="300" style="border-radius:50px; float: right; margin-right: 200px;"/></div>
 <h2>INGREDIENTS</h2>
 <ul>
   <% cocktail.ingredients.forEach(ing => { %>
   <li><%= ing.name %> <% }) %></li>
 </ul>
-<h3>INSTRUCTIONS</h3>
-<h4><%= cocktail.instructions %></h4>
-<h4>ADD INGREDIENTS</h4>
+<h2>INSTRUCTIONS</h2>
+<h3><%= cocktail.instructions %></h3>
+<h2>ADD INGREDIENTS</h2>
 <form action="/cocktails/<%= cocktail.id %>/ingredients?_method=PUT" method="POST">
   <% ingredients.forEach(ingredient => { %>
   <input type="checkbox" name="ingredients" value="<%= ingredient.id %>" />
   <label for="<%= ingredient.name %>"><%= ingredient.name %></label><br />
   <% })%>
-  <input type="submit" value="Add Ingredients" />
+  <br/>
+  <input type="submit" id="submit" style="background:#2980b9; width:70px;" value="ADD" />
 </form>
 </div>
+<script>
+  let imgDrink = document.querySelector("#drink-img");
+  fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=<%= (cocktail.name).replace(" ", "") %>').then(r => r.json())
+  .then(data => imgDrink.setAttribute('src', data.drinks[0].strDrinkThumb))
+  .catch(e => console.log("Booo"))
+</script>

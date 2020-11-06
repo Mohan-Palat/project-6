@@ -9,6 +9,9 @@
       <table>
         <% for (let i = 0; i < ingredients.length; i++) { %>
           <tr>
+            <td>
+              <img src="https://www.thecocktaildb.com/images/ingredients/<%=(ingredients[i].name).replace(" ", "")%>.png" alt="<%=ingredients[i].name%>" width="100" height="100">
+            </td>
             <td id="column-name">
               <li>
                 <a href="/ingredients/<%=ingredients[i]._id%>"> <%= ingredients[i].name %> </a>

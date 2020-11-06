@@ -312,11 +312,17 @@ a {
     padding-left: 20px;
 }
 
+.main-nav {
+	padding-top: 10px;
+	text-align: center;
+}
+
+
 .main-nav a {
     color: #fcedd8;
     text-shadow: 1.5px 1.5px 1.5px rgb(0, 0, 0);
     font-size: 20pt;
-    padding: 30px 30px 9px 28px;
+    padding: 30px 30px 12px 28px;
 }
 
 .main-nav a:hover {
@@ -324,7 +330,7 @@ a {
 }
 
 .header {
-	padding-top: .5em;
+	padding-top: 2em;
 	padding-bottom: .4em;
 	border: 1px solid #a2a2a2;
     background-color: rgba(255,255,255,0.4);

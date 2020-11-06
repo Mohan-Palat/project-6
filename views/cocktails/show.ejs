@@ -21,5 +21,5 @@
   let imgDrink = document.querySelector("#drink-img");
   fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=<%= (cocktail.name).replace(" ", "") %>').then(r => r.json())
   .then(data => imgDrink.setAttribute('src', data.drinks[0].strDrinkThumb))
-  .catch(e => console.log("Booo"))
+  .catch(e => console.log("Error"))
 </script>

@@ -1,0 +1,53 @@
+<div id="main-content">
+    <div class="page-title"></div> <img id="drink-img" width="300" height="300" style="border-radius:50px; float: right; margin-right: 200px; margin-left:100px;"/>
+    <h2>INGREDIENTS</h2>
+    <ul id="ing-list">
+      
+    </ul>
+    <h2>INSTRUCTIONS</h2>
+    <h3 id="instructions"></h3>
+    </div>
+    <script>
+      let imgDrink = document.querySelector("#drink-img");
+      let title = document.querySelector(".page-title");
+      let instructions = document.querySelector("#instructions");
+      let li = document.createElement("li");
+      let li2 = document.createElement("li");
+      let li3 = document.createElement("li");
+      let li4 = document.createElement("li");
+      let li5 = document.createElement("li");
+      let ul = document.querySelector("#ing-list");
+
+      fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php').then(r => r.json())
+      .then(data => {
+          imgDrink.setAttribute('src', data.drinks[0].strDrinkThumb);
+          title.innerHTML = data.drinks[0].strDrink;
+          instructions.innerHTML = data.drinks[0].strInstructions;
+          li.innerHTML = data.drinks[0].strMeasure1 + " " + data.drinks[0].strIngredient1;
+          if (!li.innerHTML.includes("null"))
+          {
+            ul.appendChild(li);
+          }
+          li2.innerHTML = data.drinks[0].strMeasure2 + " " + data.drinks[0].strIngredient2;
+          if (!li2.innerHTML.includes("null"))
+          {
+            ul.appendChild(li2);
+          }
+          li3.innerHTML = data.drinks[0].strMeasure3 + " " + data.drinks[0].strIngredient3;
+          if (!li3.innerHTML.includes("null"))
+          {
+            ul.appendChild(li3); 
+          }
+          li4.innerHTML = data.drinks[0].strMeasure4 + " " + data.drinks[0].strIngredient4;
+          if (!li4.innerHTML.includes("null"))
+          {
+            ul.appendChild(li4); 
+          }
+          li5.innerHTML = data.drinks[0].strMeasure5 + " " + data.drinks[0].strIngredient5;
+          if (!li5.innerHTML.includes("null"))
+          {
+            ul.appendChild(li5);   
+          }      
+        })
+      .catch(e => console.log("Error"))
+    </script>

@@ -17,6 +17,11 @@ router.get('/new', async (req, res) => {
     res.render('cocktails/new.ejs', { ingredients: allIngredients });
   });
 
+// RANDOM (GET)
+router.get('/random', async (req, res) => {
+  res.render('cocktails/random.ejs', {});
+});
+
 // SHOW (GET)
 router.get('/:id', async (req, res) => {
   let allIngredients = await Ingredient.find({});
@@ -83,4 +88,5 @@ router.get('/:id/edit', (req, res) => {
     res.render('cocktails/edit.ejs', { cocktail });
   });
 });
+
 module.exports = router;

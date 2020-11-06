@@ -386,7 +386,7 @@ a {
 
 #myTable {
   border-collapse: collapse; /* Collapse borders */
-  width: 86%; /* Full-width */
+  width: 80%; /* Full-width */
   font-size: 20pt; /* Increase font-size */
 }
 
@@ -409,9 +409,9 @@ a {
 
 #delete input[type="submit"] {
 	color: whitesmoke;
-	background-color: rgba(160, 0, 0, 0.8);
+	background-color: rgba(192, 57, 43, 0.9);
 	opacity: 0.9;
-	border: 2px inset white;
+	border: 2px outset black;
 	border-radius: 5px;
 	padding: 5px;
 	width: 125px;
@@ -419,12 +419,23 @@ a {
 
 #edit button {
 	color: whitesmoke;
-	background-color: rgba(0, 64, 160, 0.8);
+	background-color: rgba(41, 128, 185, 0.9);
 	opacity: 0.9;
-	border: 2px inset white;
+	border: 2px outset black;
 	border-radius: 5px;
 	padding: 5px;
 	width: 125px;
+}
+
+#submit {
+	color: whitesmoke;
+	background-color:rgba(39, 174, 96, 0.9);
+	opacity: 0.9;
+	border: 2px outset black;
+	border-radius: 5px;
+	padding: 5px;
+	width: 125px;
+	column-span: 2;
 }
 
 #edit button a {
@@ -435,4 +446,16 @@ input[type="submit"]:hover, button:hover{
   color: slategray;
   background-color: whitesmoke;
   opacity: 0.9;
+}
+
+.add-item-table {
+	font-size: 24pt;
+	padding: 20px;
+	border: 3px solid rgba(0, 0, 0, 0.75);
+	border-radius: 25px;
+	background: rgba(255,255,255,0.4)
+}
+
+.add-item-table tr, td{
+	padding: 10px;
 }

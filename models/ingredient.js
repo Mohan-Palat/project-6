@@ -4,9 +4,5 @@ const ingredientSchema = new mongoose.Schema({
     type: String,
     default: '',
   },
-  amount: {
-    type: String,
-    default: '',
-  },
 });
 module.exports = mongoose.model('Ingredient', ingredientSchema);

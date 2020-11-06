@@ -1,17 +1,17 @@
 <div id="main-content">
     <div class="page-title">Edit Cocktail</div>
-  <form action="/cocktails" method="POST">
+  <form action="/cocktails/<%= cocktail.id %>/?_method=PUT" method="POST">
     <table class="add-item-table">
       <tr>
         <div class="form-group">
           <td><label for="name">Name</label></td>
-          <td><input type="text" class="form-control" id="name" name="name" style="border: 3px solid black; border-radius: 8px;"/></td>
+          <td><input type="text" class="form-control" id="name" name="name" style="border: 3px solid black; border-radius: 8px;" value="<%= cocktail.name %>"/></td>
        </div>
       </tr>
       <tr>
         <div class="form-group">
           <td><label for="instructions">Instructions</label></td>
-          <td><textarea style="width:223px;font-size: 14pt;border: 3px solid black; border-radius: 8px;" rows=3 col=1 type="text" class="form-control" id="instructions" name="instructions" ></textarea></td>
+          <td><textarea style="width:223px;font-size: 14pt;border: 3px solid black; border-radius: 8px;" rows=3 col=1 type="text" class="form-control" id="instructions" name="instructions"><%= cocktail.instructions %></textarea></td>
         </div>
       </tr>
     <tr>
@@ -19,4 +19,4 @@
     </tr>
   </table>
   </form>
-  </div>
+</div>

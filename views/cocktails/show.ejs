@@ -1,6 +1,13 @@
 <div id="main-content">
-<h1><%= cocktail.name %></h1>
-<h4>Add Ingredients</h4>
+<div class="page-title"><%= cocktail.name %></div>
+<h2>INGREDIENTS</h2>
+<ul>
+  <% cocktail.ingredients.forEach(ing => { %>
+  <li><%= ing.name %> <% }) %></li>
+</ul>
+<h3>INSTRUCTIONS</h3>
+<h4><%= cocktail.instructions %></h4>
+<h4>ADD INGREDIENTS</h4>
 <form action="/cocktails/<%= cocktail.id %>/ingredients?_method=PUT" method="POST">
   <% ingredients.forEach(ingredient => { %>
   <input type="checkbox" name="ingredients" value="<%= ingredient.id %>" />
@@ -8,11 +15,4 @@
   <% })%>
   <input type="submit" value="Add Ingredients" />
 </form>
-<h3>Ingredients</h3>
-<ul>
-  <% cocktail.ingredients.forEach(ing => { %>
-  <li><%= ing.name %> <% }) %></li>
-</ul>
-<h3>Instructions</h3>
-<h4><%= cocktail.instructions %></h4>
 </div>

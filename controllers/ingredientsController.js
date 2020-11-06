@@ -19,7 +19,7 @@ router.get('/new', (req, res) => {
 router.post('/', async (req, res) => {
     try {
       let newIngredient = await Ingredient.create(req.body);
-      res.send(newIngredient);
+      res.redirect(`/ingredients`);
     } catch (error) {
       res.send(error);
     }

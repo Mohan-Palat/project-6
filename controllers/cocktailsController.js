@@ -51,7 +51,7 @@ router.delete('/:id', (req, res)=>{
   });
 });
 
-// UPDATE (PUT)
+// UPDATE (PUT) : Ingredients
 router.put('/:cocktailId/ingredients', async (req, res) => {
   let foundCocktail = await Cocktail.findByIdAndUpdate(
     req.params.cocktailId,
@@ -63,6 +63,18 @@ router.put('/:cocktailId/ingredients', async (req, res) => {
     { new: true, upsert: true }
   );
   res.redirect(`/cocktails/${foundCocktail.id}`);
+});
+
+// UPDATE (PUT) : Name and Description
+router.put('/:cocktailID', (req, res) => {
+  const cocktailID = req.params.cocktailID;
+  Cocktail.findById(cocktailID, (err, foundCocktail) => {
+    foundCocktail.name = req.body.name;
+    foundCocktail.instructions = req.body.instructions;
+    foundCocktail.save((err,savedCocktail) => {
+      res.redirect(`/cocktails/${foundCocktail.id}`);
+    });
+});
 });
 
 // EDIT (GET) : Show cocktail edit form
